@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
+.app-wrapper {
+  margin: 0 auto;
+  display: grid;
+  width: 1200px;
+  grid-template-areas:
+  "h h"
+  "n c";
+
+   grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    /* grid-gap: 10px; */
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  grid-area: h;
+  background-color: green;
+}
+.header img {
+  width: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav {
+  grid-area: n;
+  background-color: burlywood;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content {
+  grid-area: c;
+  background-color: cornflowerblue;
+}
+
+.post__item img {
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.post__item-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.dialogs__content {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dialogs__names {
+  max-width: 300px;
+  width: 100%;
+}
+
+.content-box {
+  padding: 20px;
+}
+
+.profile__big-img {
+  width: 100%;
+}
+
+.profile__big-img img {
+  display: block;
+  width: 100%;
+}
+
+.myposts__fields button {
+  display: block;
+}
+
+.dialogs__send-btn {
+  display: block;
 }
