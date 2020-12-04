@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import DialogItem from '../DialogItem/DialogItem';
-import DialogMsg from '../DialogMsg/DialogMsg';
+import DialogItem from "../DialogItem/DialogItem";
+import DialogMsg from "../DialogMsg/DialogMsg";
 
 const Dialogs = (props) => {
   const state = props.dialogPage;

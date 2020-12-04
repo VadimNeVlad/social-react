@@ -1,20 +1,20 @@
-const ADD_MSG = 'SEND-MSG';
-const UPDATE_MSG = 'UPDATE-MSG';
+const ADD_MSG = "SEND-MSG";
+const UPDATE_MSG = "UPDATE-MSG";
 
 const initialState = {
   msgData: [
-    { id: 1, msg: 'Hello!!!' },
-    { id: 2, msg: 'What are you doing?' },
-    { id: 3, msg: 'Im sleep' },
-    { id: 4, msg: 'Ok' },
+    { id: 1, msg: "Hello!!!" },
+    { id: 2, msg: "What are you doing?" },
+    { id: 3, msg: "Im sleep" },
+    { id: 4, msg: "Ok" },
   ],
   dialogData: [
-    { id: 1, name: 'Jake' },
-    { id: 2, name: 'Emma' },
-    { id: 3, name: 'Amanda' },
-    { id: 4, name: 'Tom' },
+    { id: 1, name: "Jake" },
+    { id: 2, name: "Emma" },
+    { id: 3, name: "Amanda" },
+    { id: 4, name: "Tom" },
   ],
-  newDialogMsg: '',
+  newDialogMsg: "",
 };
 
 const dialogReducer = (state = initialState, action) => {
@@ -27,13 +27,16 @@ const dialogReducer = (state = initialState, action) => {
         msg: state.newDialogMsg,
       };
 
-      state.msgData.push(newMsg);
-
-      state.newDialogMsg = '';
-      return state;
+      return {
+        ...state,
+        newDialogMsg: "",
+        msgData: [...state.msgData, newMsg],
+      };
     case UPDATE_MSG:
-      state.newDialogMsg = action.value;
-      return state;
+      return {
+        ...state,
+        newDialogMsg: action.value,
+      };
     default:
       return state;
   }

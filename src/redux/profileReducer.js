@@ -1,12 +1,12 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_POST = 'UPDATE-POST';
+const ADD_POST = "ADD-POST";
+const UPDATE_POST = "UPDATE-POST";
 
 const initialState = {
   postData: [
-    { msg: 'Hello!', likeCount: 25 },
-    { msg: 'This is my first post', likeCount: 48 },
+    { msg: "Hello!", likeCount: 25 },
+    { msg: "This is my first post", likeCount: 48 },
   ],
-  newPostText: '',
+  newPostText: "",
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -14,19 +14,22 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST:
       let count = state.postData.length + 1;
 
-      const newPost = {
+      let newPost = {
         id: count++,
         msg: state.newPostText,
         likeCount: 0,
       };
 
-      state.newPostText = '';
-
-      state.postData.push(newPost);
-      return state;
+      return {
+        ...state,
+        postData: [...state.postData, newPost],
+        newPostText: "",
+      };
     case UPDATE_POST:
-      state.newPostText = action.value;
-      return state;
+      return {
+        ...state,
+        newPostText: action.value,
+      };
     default:
       return state;
   }
